@@ -1,3 +1,5 @@
+package disruptors;
+
 import com.lmax.disruptor.*;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
@@ -18,14 +20,14 @@ public class Test
             // event will eventually be recycled by the Disruptor after it wraps
             public void onEvent(final ValueEvent event, final long sequence, final boolean endOfBatch) throws Exception
             {
-                System.out.println(Thread.currentThread().getName() + " handler1:  Sequence: " + sequence + "   ValueEvent: " + event.getValue());
+                System.out.println(Thread.currentThread().getName() + " handler1:  Sequence: " + sequence + "   disruptors.ValueEvent: " + event.getValue());
                //Thread.currentThread().join(1000);
             }
         };
-//      final EventHandler<ValueEvent> handler2 = new EventHandler<ValueEvent>() {
+//      final EventHandler<disruptors.ValueEvent> handler2 = new EventHandler<disruptors.ValueEvent>() {
 //          // event will eventually be recycled by the Disruptor after it wraps
-//          public void onEvent(final ValueEvent event, final long sequence, final boolean endOfBatch) throws Exception {
-//              System.out.println("handler2:  Sequence: " + sequence + "   ValueEvent: " + event.getValue());
+//          public void onEvent(final disruptors.ValueEvent event, final long sequence, final boolean endOfBatch) throws Exception {
+//              System.out.println("handler2:  Sequence: " + sequence + "   disruptors.ValueEvent: " + event.getValue());
 //          }
 //      };
 
